@@ -37,6 +37,10 @@ static void stop_drawing_early_suspend(struct early_suspend *h)
 {
 	int ret;
 	unsigned long irq_flags;
+	
+      /* FIXME: earlysuspend breaks androids CRT-off animation
+       * Sleep a little bit to get it played properly */
+      msleep(200);
 
 #ifdef CONFIG_EARLY_SUSPEND_DELAY
 	if (early_suspend_delay != EARLY_SUSPEND_DISABLED)

@@ -126,7 +126,9 @@ void report_prox_data(struct ssp_data *data, struct sensor_value *proxdata)
 #ifdef CONFIG_TOUCH_WAKE
 	if (proxdata->prox[0]) { // true if proximity detected
 		proximity_detected();
-	}
+	} else {
+    		proximity_off();
+  	}
 #endif
 
 	data->buf[PROXIMITY_SENSOR].prox[0] = proxdata->prox[0];

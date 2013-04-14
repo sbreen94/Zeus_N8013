@@ -31,7 +31,7 @@
 #endif
 
 #ifdef CONFIG_TOUCH_WAKE
-extern void set_powerkeydev(struct input_dev *input_device);
+#include <linux/touch_wake.h>
 #endif
 
 

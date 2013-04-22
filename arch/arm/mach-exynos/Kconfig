@@ -1837,3 +1837,27 @@ config CPU_FREQ_TETHERING
 	bool "Lock cpu freq & bus clock when tethering mode turn on"
 	depends on QC_MODEM
 	default n
+
+config RQ_STATS
+  	bool "Enable Run queue statistics"
+  	default y
+  	help
+    	  Select this to enable scheduler rune queue statistic
+    	  collections
+
+config SK_UC
+  bool "Enable Under Clocking"
+  default n
+  help
+    Multiple freq steps under stock specified 200
+
+config INTELLI_PLUG
+	bool "Enable intelli-plug cpu hotplug driver"
+	default n
+	help
+	  Generic Intelli-plug cpu hotplug driver for ARM SOCs
+
+config ABB_CONTROL
+	bool "Adaptive body bias control"
+	depends on EXYNOS4_CPUFREQ && CPU_EXYNOS4412
+	default n

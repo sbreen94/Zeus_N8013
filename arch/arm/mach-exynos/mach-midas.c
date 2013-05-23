@@ -1661,14 +1661,14 @@ static struct samsung_battery_platform_data samsung_battery_pdata = {
 	.chg_curr_siop_lv3 = 475,
 #endif
 
-	.chg_curr_usb = 475,
+	.chg_curr_usb = 700,
 	.chg_curr_cdp = 1000,
 #if defined(CONFIG_MACH_T0_USA_VZW)
-	.chg_curr_wpc = 650,
+	.chg_curr_wpc = 800,
 #else
-	.chg_curr_wpc = 475,
+	.chg_curr_wpc = 700,
 #endif
-	.chg_curr_etc = 475,
+	.chg_curr_etc = 700,
 
 	.chng_interval = 30,
 	.chng_susp_interval = 60,

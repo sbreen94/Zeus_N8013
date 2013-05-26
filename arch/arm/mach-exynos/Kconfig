@@ -1837,3 +1837,17 @@ config CPU_FREQ_TETHERING
 	bool "Lock cpu freq & bus clock when tethering mode turn on"
 	depends on QC_MODEM
 	default n
+
+config MACH_KONA_SENSOR
+	bool "KONA Sensor Enable"
+	help
+	  Support sensors of KONA boards
+
+	  BMA254 / BOSCH
+	  YAS532 / YAMAHA
+	  GP2A030A / SHARP
+
+config ABB_CONTROL
+	bool "Adaptive body bias control"
+	depends on EXYNOS4_CPUFREQ && CPU_EXYNOS4412
+	default y

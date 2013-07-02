@@ -40,7 +40,7 @@ static void stop_drawing_early_suspend(struct early_suspend *h)
 	
       /* FIXME: earlysuspend breaks androids CRT-off animation
        * Sleep a little bit to get it played properly */
-      msleep(200);
+      msleep(100);
 
 #ifdef CONFIG_EARLY_SUSPEND_DELAY
 	if (early_suspend_delay != EARLY_SUSPEND_DISABLED)

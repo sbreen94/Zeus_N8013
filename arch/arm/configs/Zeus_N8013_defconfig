@@ -1,6 +1,6 @@
 #
 # Automatically generated make config: don't edit
-# Linux/arm 3.0.31_Zeus_Kernel_V1 Kernel Configuration
+# Linux/arm 3.0.40 Kernel Configuration
 #
 CONFIG_ARM=y
 CONFIG_HAVE_PWM=y
@@ -38,7 +38,7 @@ CONFIG_IRQ_WORK=y
 CONFIG_EXPERIMENTAL=y
 CONFIG_INIT_ENV_ARG_LIMIT=32
 CONFIG_CROSS_COMPILE="/usr/local/arm/arm-eabi-4.4.3/bin/arm-eabi-"
-CONFIG_LOCALVERSION="_Zeus_Kernel_2.0.0"
+CONFIG_LOCALVERSION="_Zeus_Kernel_3.0.0"
 CONFIG_LOCALVERSION_AUTO=y
 CONFIG_HAVE_KERNEL_GZIP=y
 CONFIG_HAVE_KERNEL_LZMA=y
@@ -3209,3 +3209,5 @@ CONFIG_HAS_DMA=y
 CONFIG_CPU_RMAP=y
 CONFIG_NLATTR=y
 # CONFIG_AVERAGE is not set
+
+CONFIG_MSM_KGSL_SIMPLE_GOV=y 

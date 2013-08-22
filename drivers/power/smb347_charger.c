@@ -299,9 +299,8 @@ static void smb347_set_charging_state(int enable, int charging_mode)
 
 		/* Init smb347 charger */
 		smb347_charger_init(chg);
-
-		switch (charging_mode) {
-		case CABLE_TYPE_TA:
+//		switch (charging_mode) {
+//		case CABLE_TYPE_TA:
 			/* Input current limit : DCIN 1800mA, USBIN HC 1800mA */
 			smb347_i2c_write(chg->client,
 				SMB347_INPUT_CURRENTLIMIT, 0x66);
@@ -310,27 +309,27 @@ static void smb347_set_charging_state(int enable, int charging_mode)
 			smb347_i2c_write(chg->client, SMB347_COMMAND_B, 0x03);
 
 			pr_info("%s : 1.8A charging enable\n", __func__);
-			break;
-		case CABLE_TYPE_DESKDOCK:
+//			break;
+//		case CABLE_TYPE_DESKDOCK:
 			/* Input current limit : DCIN 1500mA, USBIN HC 1500mA */
-			smb347_i2c_write(chg->client,
-				SMB347_INPUT_CURRENTLIMIT, 0x55);
+//			smb347_i2c_write(chg->client,
+//				SMB347_INPUT_CURRENTLIMIT, 0x55);
 
 			/* CommandB : High-current mode */
-			smb347_i2c_write(chg->client, SMB347_COMMAND_B, 0x03);
-			pr_info("%s : 1.5A charging enable\n", __func__);
-			break;
-		case CABLE_TYPE_USB:
+//			smb347_i2c_write(chg->client, SMB347_COMMAND_B, 0x03);
+//			pr_info("%s : 1.5A charging enable\n", __func__);
+//			break;
+//		case CABLE_TYPE_USB:
 			/* CommandB : USB5 */
-			smb347_i2c_write(chg->client, SMB347_COMMAND_B, 0x02);
-			pr_info("%s : LOW(USB5) charging enable\n", __func__);
-			break;
-		default:
+//			smb347_i2c_write(chg->client, SMB347_COMMAND_B, 0x02);
+//			pr_info("%s : LOW(USB5) charging enable\n", __func__);
+//			break;
+//		default:
 			/* CommandB : USB1 */
-			smb347_i2c_write(chg->client, SMB347_COMMAND_B, 0x00);
-			pr_info("%s : LOW(USB1) charging enable\n", __func__);
-			break;
-		}
+//			smb347_i2c_write(chg->client, SMB347_COMMAND_B, 0x00);
+//			pr_info("%s : LOW(USB1) charging enable\n", __func__);
+//			break;
+//		}
 
 		smb347_enable_charging(chg);
 	} else {
@@ -483,15 +482,17 @@ void smb347_set_charging_current(int set_current)
 {
 	struct smb347_chg_data *chg = smb347_chg;
 
-	if (set_current > 450) {
+//	if (set_current > 450) {
 		/* CommandB : High-current mode */
+		smb347_i2c_write(chg->client, SMB347_INPUT_CURRENTLIMIT, 0x66);
+
 		smb347_i2c_write(chg->client, SMB347_COMMAND_B, 0x03);
 		udelay(10);
-	} else {
+//	} else {
 		/* CommandB : USB5 */
-		smb347_i2c_write(chg->client, SMB347_COMMAND_B, 0x02);
-		udelay(10);
-	}
+//		smb347_i2c_write(chg->client, SMB347_COMMAND_B, 0x02);
+//		udelay(10);
+//	}
 	pr_debug("%s: Set charging current as %dmA.\n", __func__, set_current);
 }
 
